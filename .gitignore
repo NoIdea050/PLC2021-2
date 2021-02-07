@@ -1,0 +1,6 @@
+**/dist-newstyle
+**/.stack-work
+**/.classpath 
+**/.project
+**/.settings
+**/target
