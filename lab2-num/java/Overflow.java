@@ -2,6 +2,7 @@ import java.util.List;
 import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
+import java.lang.Float;
 
 public class Overflow
 {
@@ -63,7 +64,7 @@ public class Overflow
         for ( int i = 1; i <= m; i++ )
         {
             int nextPower = power * n;
-//             assert ?? : "power: Integer overflow";
+            assert (long) power*n < Integer.MAX_VALUE : "power: Integer overflow";
             result.add(nextPower);
             power = nextPower;
         }
@@ -86,7 +87,8 @@ public class Overflow
         for ( int i = 1; i <= m; i++ )
         {
             power = power * n;
-//             assert ?? : "Floating-point overflow";
+            //assert ?? : "Floating-point overflow";
+            assert power < Float.MAX_VALUE : "Floating-point overflow";
             result.add(power);
         }
         return result;
@@ -112,7 +114,8 @@ public class Overflow
         for ( int i = 0; i <= m; i++ )
         {
             power = power / n; // update from 1/n^(i-1) to 1/n^i
-//             assert ?? : "Floating point underflow";
+            //assert ?? : "Floating point underflow";
+            assert power > Float.MIN_VALUE : "Floating point underflow";
             sum = sum + power;
             result.add(sum);
         }
